@@ -40,7 +40,7 @@ class EncryptionBehavior extends ModelBehavior {
 
 	public function beforeFind(&$model,$queryData) {
 		parent::beforeFind($model,$queryData);
-		if ($this->__settings['condition_search'] == true && isset($queryData['conditions'])){
+		if ($this->__settings['condition_encrypt'] == true && isset($queryData['conditions'])){
 			$queryData['conditions'] = self::__encryptionConditionSet($model,$queryData['conditions'],true);
 		}
 		return $queryData;
