@@ -25,7 +25,10 @@ class EncryptionBehavior extends ModelBehavior {
 			App::uses('Security', 'Utility');
 		}
 		if (!defined('ENCRYPTION_KEY')){
-			define('ENCRYPTION_KEY','zxczxczxczxczczxczxczxczxczxczxczxczxfarascfasd');
+			if (Configure::read('debug') > 0){
+				var_dump('とりあえず動作しますがENCRYPTION_KEYを必ず指定するようにして下さい。');
+			}
+			define('ENCRYPTION_KEY','7UniidVg5tFIXcVjyEDmeRPAXzqWc55OEJqdbJXSejfHwyeAICSkYMjgNqPow2ke');
 		}
 	}
 
