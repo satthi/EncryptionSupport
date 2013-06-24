@@ -8,7 +8,9 @@ require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model
 require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Department.php');
 require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Group.php');
 require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'AccountsGroup.php');
-
+if (!defined('ENCRYPTION_KEY')){
+    define('ENCRYPTION_KEY','7UniidVg5tFIXcVjyEDmeRPAXzqWc55OEJqdbJXSejfHwyeAICSkYMjgNqPow2ke');
+}
 
 
 /**
