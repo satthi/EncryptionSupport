@@ -2,11 +2,11 @@
 //App::uses('Account', 'EncryptionSupport.Test/test_app/Model');
 App::uses('EncryptionBehavior', 'EncryptionSupport.Model/Behavior');
 
-include_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Account.php');
-include_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Hobby.php');
-include_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Department.php');
-include_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Group.php');
-include_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'AccountsGroup.php');
+require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Account.php');
+require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Hobby.php');
+require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Department.php');
+require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'Group.php');
+require_once(App::pluginPath('EncryptionSupport').'Test'.DS.'test_app'.DS.'Model'.DS.'AccountsGroup.php');
 
 
 
