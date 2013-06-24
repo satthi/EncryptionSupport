@@ -1,4 +1,5 @@
 <?php
+
 //App::uses('Account', 'EncryptionSupport.Test/test_app/Model');
 App::uses('EncryptionBehavior', 'EncryptionSupport.Model/Behavior');
 
@@ -113,11 +114,10 @@ class EncryptionBehaviorTest extends CakeTestCase {
             'Account' => 
                 array(
                     'name' => 'テスト',
-                    'department_id' => $group_id
                 ),
             'Group' => array(
                 'Group' => 
-                    array(0 => 1)
+                    array(0 => $group_id)
             )
         );
         
