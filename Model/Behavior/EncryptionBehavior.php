@@ -75,8 +75,7 @@ class EncryptionBehavior extends ModelBehavior {
 			foreach ($model->belongsTo as $belongsToModelName => $belongsToVal){
 				//二階層以上は潜らない
 				if ($first_flag === false) continue;
-				App::uses($belongsToModelName,'Model');
-				$belongsToModel = new $belongsToModelName();
+				$belongsToModel = $model->{$belongsToModelName};
 				$conditions = self::__encryptionConditionSet($belongsToModel,$conditions);
 			}
 		}
@@ -111,8 +110,7 @@ class EncryptionBehavior extends ModelBehavior {
 				foreach ($model->hasMany as $hasManyModelName => $hasManyVal){
 					//二階層以上は潜らない
 					if ($first_flag === false) continue;
-					App::uses($hasManyModelName,'Model');
-					$hasManyModel = new $hasManyModelName();
+					$hasManyModel = $model->{$hasManyModelName};
 					if (!empty($result[$hasManyModelName])){
 						foreach($result[$hasManyModelName] as $hasManyResultKey => $hasManyResultVal){
 							$hasManyconjugatedData = self::__conjugatedData($hasManyModel,array(0 => array($hasManyModelName =>$hasManyResultVal)));
@@ -125,8 +123,7 @@ class EncryptionBehavior extends ModelBehavior {
 				foreach ($model->belongsTo as $belongsToModelName => $belongsToVal){
 					//二階層以上は潜らない
 					if ($first_flag === false) continue;
-					App::uses($belongsToModelName,'Model');
-					$belongsToModel = new $belongsToModelName();
+					$belongsToModel = $model->{$belongsToModelName};
 					if (!empty($result[$belongsToModelName])){
 						$results = self::__conjugatedData($belongsToModel,$results);
 					}
@@ -137,8 +134,7 @@ class EncryptionBehavior extends ModelBehavior {
 				foreach ($model->hasAndBelongsToMany as $hasAndBelongsToManyName => $hasAndBelongsToManyVal){
 					//二階層以上は潜らない
 					if ($first_flag === false) continue;
-					App::uses($hasAndBelongsToManyName,'Model');
-					$hasAndBelongsToManyModel = new $hasAndBelongsToManyName();
+					$hasAndBelongsToManyModel = $model->{$hasAndBelongsToManyName};
 					if (!empty($result[$hasAndBelongsToManyName])){
 						foreach($result[$hasAndBelongsToManyName] as $hasAndBelongsToManyResultKey => $hasAndBelongsToManyResultVal){
 							$hasAndBelongsToManyconjugatedData = self::__conjugatedData($hasAndBelongsToManyModel,array(0 => array($hasAndBelongsToManyName =>$hasAndBelongsToManyResultVal)));

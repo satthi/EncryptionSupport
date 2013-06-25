@@ -1,8 +1,4 @@
 <?php
-//App::uses('Department', 'EncryptionSupport.Test/test_app/Model');
-//App::uses('Hobby', 'EncryptionSupport.Test/test_app/Model');
-//App::uses('Group', 'EncryptionSupport.Test/test_app/Model');
-
 class Account extends CakeTestModel{
     public $useTable = 'accounts';
     public $name = 'Account';
@@ -26,7 +22,7 @@ class Account extends CakeTestModel{
 
 	public $hasMany = array(
 		'Hobby' => array(
-			'className' => 'Hobby',
+			'className' => 'EncryptionSupport.Hobby',
 			'foreignKey' => 'account_id',
 			'dependent' => false,
 			'conditions' => '',
@@ -42,7 +38,7 @@ class Account extends CakeTestModel{
 
 	public $hasAndBelongsToMany = array(
 		'Group' => array(
-			'className' => 'Group',
+			'className' => 'EncryptionSupport.Group',
 			'joinTable' => 'accounts_groups',
 			'foreignKey' => 'account_id',
 			'associationForeignKey' => 'group_id',

@@ -11,7 +11,7 @@ class Department extends CakeTestModel{
 
 	public $hasMany = array(
 		'Account' => array(
-			'className' => 'Account',
+			'className' => 'EncryptionSupport.Account',
 			'foreignKey' => 'department_id',
 			'dependent' => false,
 			'conditions' => '',

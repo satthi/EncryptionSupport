@@ -11,7 +11,7 @@ class Hobby extends CakeTestModel{
 
 	public $belongsTo = array(
 		'Account' => array(
-			'className' => 'Account',
+			'className' => 'EncryptionSupport.Account',
 			'foreignKey' => 'account_id',
 			'conditions' => '',
 			'fields' => '',

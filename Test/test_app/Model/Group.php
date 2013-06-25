@@ -1,5 +1,4 @@
 <?php
-
 class Group extends CakeTestModel{
     public $useTable = 'groups';
     public $name = 'Group';
@@ -12,7 +11,7 @@ class Group extends CakeTestModel{
 
 	public $hasAndBelongsToMany = array(
 		'Account' => array(
-			'className' => 'Account',
+			'className' => 'EncryptionSupport.Account',
 			'joinTable' => 'accounts_groups',
 			'foreignKey' => 'group_id',
 			'associationForeignKey' => 'account_id',
