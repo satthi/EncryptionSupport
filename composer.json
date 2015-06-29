@@ -1,0 +1,37 @@
+{
+    "name": "satthi/encryption-support",
+    "description": "CakePHP EncryptionSupport",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "encrypt"],
+    "homepage": "https://github.com/satthi/EncryptionSupport",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Satoru Hagiwara",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/satthi/EncryptionSupport"
+    },
+    "require": {
+        "cakephp/cakephp": "~3.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+        "psr-4": {
+            "EncryptionSupport\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "EncryptionSupport\\Test\\": "tests",
+            "EncryptionSupport\\Test\\App\\": "tests/test_app/App",
+        }
+    },
+    "suggest": {
+    },
+    "extra": {
+    }
+}
