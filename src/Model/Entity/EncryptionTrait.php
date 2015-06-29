@@ -9,7 +9,7 @@ trait EncryptionTrait
     private $__encryptionSettings = array();
     private $__enableDecrypt = true;
     
-    private function __encryptionSettings()
+    public function __encryptionSettings()
     {
         
         $default = [];

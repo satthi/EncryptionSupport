@@ -65,6 +65,15 @@ class AccountsTableTest extends TestCase
         //初期保存データが平文でtestと入っているがfindした結果がtestでないことを確認する
         $data2 = $this->Accounts->get(1);
         $this->assertNotEquals($data2->name, 'test');
+        
+        //findlistのデータについて
+        $list_datas = $this->Accounts->find('list')->where(['Accounts.id' => $save_result->id]);
+        $list_datas = $this->Accounts->decryptList($list_datas);
+        
+        $this->assertTrue(
+            $list_datas === [$save_result->id => $save_data['name']]
+        );
     }
+    
 
 }
