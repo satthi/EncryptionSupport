@@ -3,6 +3,7 @@
 namespace EncryptionSupport\Model\Entity;
 
 use Cake\Utility\Security;
+use Cake\Core\Configure;
 
 trait EncryptionTrait
 {
