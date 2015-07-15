@@ -30,23 +30,13 @@ use EncryptionTrait;
         ],
     ];
     
-    //&getメソッドをoverride
+    //&get繝｡繧ｽ繝�繝峨ｒoverride
     public function &__get($property){
         $value = parent::__get($property);
         
         $value = $this->getDecrypt($property, $value);
         
         return $value;
-    }
-    
-    //setメソッドをoverride
-    
-    public function set($property, $value = null, array $options = []){
-        
-        parent::set($property, $value , $options);
-        
-        $this->setEncrypt();
-        return $this;
     }
 
 }

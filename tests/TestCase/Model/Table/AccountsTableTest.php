@@ -81,7 +81,9 @@ class AccountsTableTest extends AppTestCase
             'name' => 'test'
         ];
         $account = $this->Accounts->newEntity($save_data);
+        
         $save_result = $this->Accounts->save($account);
+
         $this->assertTrue((bool) $save_result);
         
         //保存したデータをfindする

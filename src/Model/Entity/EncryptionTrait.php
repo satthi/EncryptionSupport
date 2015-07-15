@@ -38,14 +38,7 @@ trait EncryptionTrait
         
         return $value;
     }
-    
-    public function setEncrypt(){
-        
-        $this->__encryptionSettings();
-        $this->encryptionData();
-        return $this;
-    }
-    
+   
     public function decryptData(){
         $this->__encryptionSettings();
         foreach ($this->__encryptionSettings['fields'] as $field){
