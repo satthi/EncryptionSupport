@@ -4,11 +4,12 @@ namespace EncryptionSupport\Test\TestCase\Model\Table;
 use App\Model\Table\AccountsTable;
 use Cake\ORM\TableRegistry;
 use Cake\TestSuite\TestCase;
+use PluginTestSupport\Test\TestCase\AppTestCase;
 
 /**
  * App\Model\Table\AccountsTable Test Case
  */
-class AccountsTableTest extends TestCase
+class AccountsTableTest extends AppTestCase
 {
 
     /**
@@ -20,6 +21,27 @@ class AccountsTableTest extends TestCase
         'plugin.encryption_support.accounts',
     ];
 
+    public static function setUpBeforeClass(){
+        //設定値の変更
+        $info = [
+            'className' => 'Cake\Database\Connection',
+            'driver' => 'Cake\Database\Driver\Postgres',
+            'persistent' => false,
+            'host' => 'localhost',
+            //'port' => 'nonstandard_port_number',
+            'username' => 'postgres',
+            'password' => '',
+            'database' => 'cakephp_test',
+            'encoding' => 'utf8',
+            'timezone' => 'Asia/Tokyo',
+            'cacheMetadata' => false,
+            'quoteIdentifiers' => false,
+        ];
+        parent::setConnectionInfo($info);
+        
+        parent::setUpBeforeClass();
+    }
+
     /**
      * setUp method
      *
@@ -30,6 +52,10 @@ class AccountsTableTest extends TestCase
         parent::setUp();
         $config = TableRegistry::exists('Accounts') ? [] : ['className' => 'EncryptionSupport\Test\App\Model\Table\AccountsTable'];
         $this->Accounts = TableRegistry::get('Accounts', $config);
+        
+        //fixtureManagerを呼び出し、fixtureを実行する
+        $this->fixtureManager->fixturize($this);
+        $this->fixtureManager->loadSingle('Accounts');
     }
 
     /**
@@ -55,7 +81,9 @@ class AccountsTableTest extends TestCase
             'name' => 'test'
         ];
         $account = $this->Accounts->newEntity($save_data);
+        
         $save_result = $this->Accounts->save($account);
+
         $this->assertTrue((bool) $save_result);
         
         //保存したデータをfindする

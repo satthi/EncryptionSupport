@@ -10,14 +10,12 @@ use Cake\ORM\Table;
 
 class EncryptionBehavior extends Behavior {
 
-/*
     public function beforeSave(Event $event, Entity $entity)
     {
         //これでいじれるか・・・
         $entity->encryptionData();
         return true;
     }
-    */
     
     public function decryptDataAll($dataAll){
         foreach ($dataAll as $entity){
