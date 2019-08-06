@@ -1,0 +1,21 @@
+{
+    "name": "satthi/encryption-support",
+    "description": "CakePHP encryption-support ",
+    "type": "cakephp-plugin",
+    "keywords": ["cakephp", "encryption"],
+    "homepage": "https://github.com/satthi/EncryptionSupport",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Satoru Hagiwara",
+            "role": "Author"
+        }
+    ],
+    "support": {
+        "source": "https://github.com/satthi/EncryptionSupport"
+    },
+    "require": {
+        "cakephp/cakephp": "~2.0"
+    }
+}
+
