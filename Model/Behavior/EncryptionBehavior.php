@@ -4,7 +4,7 @@ class EncryptionBehavior extends ModelBehavior {
 
 	var $__settings = array();
 
-	function setup(&$Model, $settings = array()) {
+	function setup(Model $Model, $settings = array()) {
 		$default = array(
 			//暗号化方式
 			/*
@@ -32,13 +32,13 @@ class EncryptionBehavior extends ModelBehavior {
 		}
 	}
 
-	function beforeSave(&$model,$options = array()){
+	function beforeSave(Model $model,$options = array()){
 		parent::beforeSave($model,$options);
 		self::__encryptionData($model,true);
 		return true;
 	}
 
-	public function beforeFind(&$model,$queryData) {
+	public function beforeFind(Model $model,$queryData) {
 		parent::beforeFind($model,$queryData);
 		if ($this->__settings['condition_encrypt'] == true && isset($queryData['conditions'])){
 			$queryData['conditions'] = self::__encryptionConditionSet($model,$queryData['conditions'],true);
@@ -46,7 +46,7 @@ class EncryptionBehavior extends ModelBehavior {
 		return $queryData;
 	}
 
-	public function afterFind(&$model,$results, $primary = false) {
+	public function afterFind(Model $model,$results, $primary = false) {
 		parent::afterFind($model,$results, $primary);
 		return self::__conjugatedData($model,$results,true);
 	}
@@ -169,4 +169,4 @@ class EncryptionBehavior extends ModelBehavior {
 	}
 	
 }
-?>
+
